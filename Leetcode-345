@@ -1,0 +1,54 @@
+/*
+345. Reverse Vowels of a String (Easy)
+
+Given a string s, reverse only all the vowels in the string and return it.
+The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+
+Example 1:
+Input: s = "IceCreAm"
+Output: "AceCreIm"
+Explanation:
+The vowels in s are ['I', 'e', 'e', 'A']. On reversing the vowels, s becomes "AceCreIm".
+
+Example 2:
+Input: s = "leetcode"
+Output: "leotcede"
+
+Constraints:
+1 <= s.length <= 3 * 105
+s consist of printable ASCII characters.
+
+question asked by companies: Google, Zoho, Flipkart.
+
+time complexity: O(n)
+Runtime: 0ms
+Beats: 100.00%
+
+
+space complexity: O(n)
+Memory: 9.71MB
+Beats: 37.00%
+
+code:
+*/
+
+class Solution {
+public:
+    string reverseVowels(string s) {
+        int n = s.length();
+        vector<char> c;
+        for(int i=0; i<n; i++){
+            if(s[i] == 'A' || s[i] == 'E' ||s[i] == 'I' ||s[i] == 'O' ||s[i] == 'U' ||s[i] == 'a' ||s[i] == 'e' ||s[i] == 'i' |s[i] == 'o' ||s[i] == 'u'){
+                c.push_back(s[i]);
+            }
+        }
+        int m = c.size();
+        for(int i=0; i<n; i++){
+            if(s[i] == 'A' || s[i] == 'E' ||s[i] == 'I' ||s[i] == 'O' ||s[i] == 'U' ||s[i] == 'a' ||s[i] == 'e' ||s[i] == 'i' |s[i] == 'o' ||s[i] == 'u'){
+                s[i] = c[m-1];
+                m--;
+            }
+        }
+        return s;
+    }
+};
