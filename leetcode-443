@@ -35,8 +35,8 @@ Runtime: 0ms
 Beats: 100.00%
 
 Space complexity : O(1)
-Memory: 14.05MB
-Beats: 32.58%
+Memory: 13.98MB
+Beats: 67.57%
 
 code:
 */
