@@ -1,0 +1,52 @@
+/*
+3174. Clear Digits (Easy)
+
+You are given a string s.
+Your task is to remove all digits by doing this operation repeatedly:
+Delete the first digit and the closest non-digit character to its left.
+Return the resulting string after removing all digits.
+
+Example 1:
+Input: s = "abc"
+Output: "abc"
+Explanation:
+There is no digit in the string.
+
+Example 2:
+Input: s = "cb34"
+Output: ""
+Explanation:
+First, we apply the operation on s[2], and s becomes "c4".
+Then we apply the operation on s[1], and s becomes "".
+
+Constraints:
+1 <= s.length <= 100
+s consists only of lowercase English letters and digits.
+The input is generated such that it is possible to delete all digits.
+
+time complexity: O(n)
+Runtime: 0ms
+Beats: 100.00%
+
+space complexity: O(1)
+Memory: 8.42MB
+Beats: 70.30%
+
+code: 
+*/
+
+class Solution {
+public:
+    string clearDigits(string s) {
+        int n = s.length();
+        for(int i=1; i<n; i++){
+            if(s[i] >= 48 && s[i] <= 57){
+                s.erase(i,1);
+                s.erase(i-1,1);
+                n -= 2;
+                i -= 2;
+            }
+        }
+        return s;
+    }
+};
