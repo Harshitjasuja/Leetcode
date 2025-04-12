@@ -1,0 +1,65 @@
+/*
+416. Partition Equal Subset Sum (Medium)
+ 
+Topics - Array, Dynamic Programming
+ 
+Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal or false otherwise.
+
+Example 1:
+Input: nums = [1,5,11,5]
+Output: true
+Explanation: The array can be partitioned as [1, 5, 5] and [11].
+
+Example 2:
+Input: nums = [1,2,3,5]
+Output: false
+Explanation: The array cannot be partitioned into equal sum subsets.
+
+Constraints:
+1 <= nums.length <= 200
+1 <= nums[i] <= 100
+
+time complexity: O(n)
+Runtime: 203ms
+Beats: 11.42%
+
+space complexity: O(1)
+Memory: 30.55MB
+Beats: 42.57%
+
+code: 
+*/
+
+class Solution {
+public:
+    int t[201][20001];
+    bool solve(vector<int>& nums, int x, int i){
+        if(x == 0){
+            return true;
+        }
+        if(i >= nums.size()){
+            return false;
+        }
+        if(t[i][x] != -1){
+            return t[i][x];
+        }
+        bool take = false;
+        if(nums[i] <= x){
+            take = solve(nums, x-nums[i], i+1);
+        }
+        bool nottake = solve(nums, x, i+1);
+
+        return t[i][x] = take || nottake;
+    }
+    bool canPartition(vector<int>& nums) {
+        int n = nums.size();
+        int s = accumulate(begin(nums), end(nums), 0);
+
+        memset(t, -1, sizeof(t));
+
+        if(s%2!=0) return false;
+        int x = s/2;
+
+        return solve(nums, x, 0);
+    }
+};
