@@ -23,6 +23,8 @@ Constraints:
 1 <= nums.length <= 100
 0 <= nums[i] <= 400
 
+Question asked by companies: Google, Walmart, Amazon, Flipkart, Paytm, OYO, Airbnb, Makemytrip, Linkedin. 
+
 time complexity: O(n)
 Runtime: 0ms
 Beats: 100.00%
