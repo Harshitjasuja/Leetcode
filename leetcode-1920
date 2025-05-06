@@ -33,7 +33,7 @@ time complexity: O(n)
 Runtime: 0ms
 Beats: 100.00%
 
-space complexity: O(1)
+space complexity: O(n)
 Memory: 20.18MB
 Beats: 99.83%
 
@@ -49,5 +49,32 @@ public:
             ans[i] = nums[nums[i]];
         }
         return ans;
+    }
+};
+
+/*
+Follow-up
+
+time complexity: O(n)
+Runtime: 0ms
+Beats: 100.00%
+
+space complexity: O(1)
+Memory: 20.28MB
+Beats: 96.05%
+
+*/
+
+class Solution {
+public:
+    vector<int> buildArray(vector<int>& nums) {
+        int n = nums.size();
+        for(int i=0; i<n; i++){
+            nums[i] += n * (nums[nums[i]]%n);
+        }
+        for(int i=0; i<n; i++){
+            nums[i] /= n;
+        }
+        return nums;
     }
 };
