@@ -28,7 +28,7 @@ Output: "c"
 Constraints:
 1 <= k <= 500
 
-time complexity: O(n)
+time complexity: O(K)
 Runtime: 0ms
 Beats: 100.00%
 
